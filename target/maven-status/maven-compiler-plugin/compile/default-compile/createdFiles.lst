@@ -1,0 +1,9 @@
+com\maryam\msasecondapp\config\BootStrap.class
+com\maryam\msasecondapp\service\HealthCheckService.class
+entity\Book_.class
+com\maryam\msasecondapp\config\CrossOriginResourceSharingFilter.class
+entity\Book.class
+com\maryam\msasecondapp\config\Producers.class
+ejb\BookSessionBean.class
+.netbeans_automatic_build
+com\maryam\msasecondapp\service\ExampleService.class
