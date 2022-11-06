@@ -1,0 +1,45 @@
+JDBC url : jdbc:mysql://localhost:3306/sem9?useSSL=false
+
+docker image ls // to check mysql and payara micro
+docker pull payara/micro:latest
+docker pull mysql/mysql-server:5.7
+
+docker network create mynet
+
+docker run -p 3406:3306 --network mynet --name databse(container name) mysql/mysql-server:5.7
+
+new terminal
+docker exec -it database mysql -u root -p
+copy auto generate password
+
+alter user 'root'@'localhost' identified by 'password';
+
+GRANT ALL PRIVILEGES ON . TO 'root'@'%' identified by 'password' WITH GRANT OPTION;
+
+create databas dbname
+
+new terminal
+
+docker exec -i database mysql -uroot -p(password) dbname< path of mysql file that we export from phpmyadmin
+
+domain.xml change servername with container name of db
+
+copy war file in main folder
+
+docker build -t ictmsaapp:latest .
+
+docker run -p 9050:8080 --name ictapp --network mynet -d ictmsaapp:latest
+
+client interface baseuri change port with 9050
+
+clean and build client project
+
+client war file paste in main folder
+
+change name of client app in docker file
+
+docker build -t ictmsaclient:latest .
+
+docker run -p 9051:8080 --name ictmsaclient --network mynet -d ictmsaclient:latest
+
+docker network inspect mynet
